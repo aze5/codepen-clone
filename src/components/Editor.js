@@ -1,8 +1,9 @@
-import React, { useReducer, useState } from 'react'
+import React, { useState } from 'react'
 import CodeMirror from '@uiw/react-codemirror';
-
 import { sublime } from '@uiw/codemirror-theme-sublime';
 import { EditorView } from '@codemirror/view';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCompressAlt, faExpandAlt } from '@fortawesome/free-solid-svg-icons'
 
 export default function Editor(props) {
   const {
@@ -22,7 +23,13 @@ export default function Editor(props) {
     <div className={`editor-container ${open ? "" : "collapsed"}`}>
       <div className="editor-title">
         {displayName}
-        <button onClick={() => setOpen(prevOpen => !prevOpen)}>O/C</button>
+        <button 
+        onClick={() => setOpen(prevOpen => !prevOpen)}
+        type="button"
+        className="expand-collapse-button"
+        >
+          <FontAwesomeIcon icon={open ? faCompressAlt : faExpandAlt} />
+        </button>
       </div>
       <CodeMirror 
         onChange={handleChange}

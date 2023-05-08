@@ -54,6 +54,7 @@ function App() {
 
       <div className='pane'>
         <iframe
+          id='output'
           srcDoc={srcDoc}
           title="output"
           sandbox="allow-scripts"
