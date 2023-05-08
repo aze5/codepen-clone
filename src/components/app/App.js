@@ -3,11 +3,12 @@ import Editor from '../Editor';
 import { javascript } from '@codemirror/lang-javascript';
 import { html } from '@codemirror/lang-html';
 import { css } from '@codemirror/lang-css';
+import useLocalStorage from '../../hooks/useLocalStorage';
 
 function App() {
-  const [codeHtml, setHtml] = useState("")
-  const [codeCss, setCss] = useState("")
-  const [js, setJs] = useState("")
+  const [codeHtml, setHtml] = useLocalStorage("html", "")
+  const [codeCss, setCss] = useLocalStorage("css", "")
+  const [js, setJs] = useLocalStorage("js", "")
   const [srcDoc, setSrcDoc] = useState("")
 
 
