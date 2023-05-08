@@ -1,29 +1,32 @@
 import React, { useState } from 'react';
 import Editor from '../Editor';
+import { javascript } from '@codemirror/lang-javascript';
+import { html } from '@codemirror/lang-html';
+import { css } from '@codemirror/lang-css';
 
 function App() {
-  const [html, setHtml] = useState("")
+  const [codeHtml, setHtml] = useState("")
   const [js, setJs] = useState("")
-  const [css, setCss] = useState("")
+  const [codeCss, setCss] = useState("")
   return (
     <>
       <div className='pane top-pane'>
         <Editor 
-          language="html"
+          language={html()}
           displayName="HTML "
-          value={html}
+          value={codeHtml}
           onChange={setHtml}
         />
 
         <Editor 
-          language="css"
+          language={css()}
           displayName="CSS "
-          value={css}
+          value={codeCss}
           onChange={setCss}
         />
 
         <Editor 
-          language="javascript"
+          language={javascript()}
           displayName="JS "
           value={js}
           onChange={setJs}
