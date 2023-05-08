@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useReducer, useState } from 'react'
 import CodeMirror from '@uiw/react-codemirror';
 
 import { sublime } from '@uiw/codemirror-theme-sublime';
@@ -12,15 +12,17 @@ export default function Editor(props) {
     value
   } = props
 
+  const [open, setOpen] = useState(true)
+
   function handleChange(value, viewUpdate) {
     onChange(value)
   }
 
   return (
-    <div className="editor-container">
+    <div className={`editor-container ${open ? "" : "collapsed"}`}>
       <div className="editor-title">
         {displayName}
-        <button>O/C</button>
+        <button onClick={() => setOpen(prevOpen => !prevOpen)}>O/C</button>
       </div>
       <CodeMirror 
         onChange={handleChange}
@@ -28,7 +30,7 @@ export default function Editor(props) {
         height="310px"
         className='codemirror-wrapper'
         extensions={[language, EditorView.lineWrapping]}
-        theme="dark"
+        theme={sublime}
       />
     </div>
   )
