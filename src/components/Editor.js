@@ -25,7 +25,7 @@ export default function Editor(props) {
       <CodeMirror 
         onChange={handleChange}
         value={value}
-        height='200px'
+        height="310px"
         className='codemirror-wrapper'
         extensions={[language, EditorView.lineWrapping]}
         theme="dark"
