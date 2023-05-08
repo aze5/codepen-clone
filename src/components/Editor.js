@@ -17,7 +17,7 @@ export default function Editor(props) {
   function handleChange(value, viewUpdate) {
     onChange(value)
   }
-  
+
   return (
     <div className="editor-container">
       <div className="editor-title">
@@ -27,6 +27,7 @@ export default function Editor(props) {
       <CodeMirror 
         onChange={handleChange}
         value={value}
+        height='200px'
         className='codemirror-wrapper'
         extension={[language, EditorView.lineWrapping]}
         theme={sublime}
